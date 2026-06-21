@@ -1,0 +1,22 @@
+class Solution:
+    def maximumLengthSubstring(self, s: str) -> int:
+        left = 0
+        max_length = 0
+        memory = {} 
+        for right in range(len(s)):
+           
+            current_letter = s[right]
+            memory[current_letter] = memory.get(current_letter, 0) + 1
+            
+            
+            while memory[current_letter] > 2:
+                
+                left_letter = s[left]
+                memory[left_letter] -= 1
+                left += 1
+                
+           
+            current_window_size = right - left + 1
+            max_length = max(max_length, current_window_size)
+            
+        return max_length
