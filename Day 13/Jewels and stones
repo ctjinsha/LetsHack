@@ -1,0 +1,14 @@
+class Solution:
+    def numJewelsInStones(self, jewels: str, stones: str) -> int:
+        so=sorted(jewels)
+        count=Counter(stones)
+        res=0
+        for i,j in count.items():
+            if i in so:
+                res+=j
+        return res
+
+
+
+
+        
